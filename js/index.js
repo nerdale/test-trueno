@@ -69,7 +69,10 @@ function filterDesigners(){
 
 filterDropdown.addEventListener('change', filterDesigners);
 
-const socket = io(SERVER_URL);
+const socket = io(SERVER_URL, {
+    transports: ['websocket'],
+    secure: true, 
+});
 
 socket.on('connect', () => {
     console.log("Conexión con el servidor de Render establecida.");
