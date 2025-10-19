@@ -1,6 +1,5 @@
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyDBrMrjSrqTbg7BdXap5iQIJEuU-PUTwZfBbbb0aU7Z5mPS7OjWM4VxATiDBAyosxj/exec'; 
 const SERVER_URL = "https://spreadsheet-websocket-server.onrender.com"; 
-
 let designers = []; 
 const listContainer = document.getElementById('designers-list');
 const filterDropdown = document.getElementById('filter');
@@ -30,7 +29,7 @@ async function loadDesigners(){
         listContainer.innerHTML = `<li class="designer-item error-item">
                                      Error al cargar los datos: ${error.message}
                                    </li>`;
-        statusMessage.textContent = `❌ Error: ${error.message}`;
+        statusMessage.textContent = `Error: ${error.message}`;
     }
 }
 
@@ -75,12 +74,10 @@ const socket = io(SERVER_URL, {
 });
 
 socket.on('connect', () => {
-    console.log("Conexión con el servidor de Render establecida.");
     statusMessage.textContent = "Conectado. Esperando actualizaciones...";
 });
 
 socket.on('spreadsheet-updated', () => {
-    console.log("Señal de actualización recibida desde Render!");
     loadDesigners(); 
 });
 
