@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Diseñadores Destacados</h1>
+
+    <div class="controls">
+        <label for="filter">Filtrar por especialidad:</label>
+        <select id="filter" onchange="filterDesigners()">
+            <option value="todos">Todos</option>
+            <option value="web">Web</option>
+            <option value="editorial">Editorial</option>
+            <option value="tipografia">Tipografía</option>
+        </select>
+    </div>
+
+    <div id="designers-list">
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
